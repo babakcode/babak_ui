@@ -88,10 +88,10 @@ class _ChangeableState extends State<Changeable> {
         return;
       }
 
-
       if (_activeCallbackIdentity == callbackIdentity) {
         setState(() {
-          _snapshot = AsyncSnapshot.withData(ConnectionState.done, response.body);
+          _snapshot =
+              AsyncSnapshot.withData(ConnectionState.done, response.body);
         });
       }
     }, onError: (Object error, StackTrace stackTrace) {
@@ -105,16 +105,14 @@ class _ChangeableState extends State<Changeable> {
     _snapshot = _snapshot.inState(ConnectionState.waiting);
   }
 
-  void _unsubscribe() {
-    _activeCallbackIdentity = null;
-  }
+  void _unsubscribe() => _activeCallbackIdentity = null;
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return widget.defWidget ??
-  //       FutureBuilder(builder: builder) ??
-  //       const Center(
-  //         child: CircularProgressIndicator(),
-  //       );
-  // }
+// @override
+// Widget build(BuildContext context) {
+//   return widget.defWidget ??
+//       FutureBuilder(builder: builder) ??
+//       const Center(
+//         child: CircularProgressIndicator(),
+//       );
+// }
 }
